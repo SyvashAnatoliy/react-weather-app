@@ -1,6 +1,7 @@
 import Header from './components//Header/Header.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
 import CurrentWeather from './components/CurrentWeather/CurrentWeather.jsx';
+import Highlights from './components/Highlights/Highlights.jsx';
 import useWeatherSearch from './hooks/useWeatherSearch';
 import { useState, useEffect } from 'react';
 
@@ -16,16 +17,29 @@ function App() {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      const searchData = { value: `${latitude} ${longitude}` };
+      handleOnSearchChange(searchData);
+    },
+      (error) => {
+        handleOnSearchChange({ value: "50.4501 30.5234" });
+      }
+    );
+  }, [handleOnSearchChange]);
+
   return (
     <div className="container">
       <Sidebar />
       <div className="content">
-        <Header setWeather={setWeather} theme={theme} setTheme={setTheme} onSearchChange={handleOnSearchChange}  />
+        <Header setWeather={setWeather} theme={theme} setTheme={setTheme} onSearchChange={handleOnSearchChange} />
         <div className="main">
           <div className="first-half">
             <CurrentWeather weather={weather} unit={unit} setUnit={setUnit} />
           </div>
           <div className="second-half">
+            <Highlights weather={weather} unit={unit} setUnit={setUnit} />
           </div>
         </div>
       </div>

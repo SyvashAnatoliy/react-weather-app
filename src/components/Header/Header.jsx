@@ -13,7 +13,7 @@ const Header = ({ onSearchChange, theme, setTheme }) => {
       </div>
       <div className="header-main">
         <Search onSearchChange={onSearchChange} />
-        <ThemeToggle theme={theme} setTheme={setTheme}/>
+        <ThemeToggle theme={theme} setTheme={setTheme} />
         <div className="avatar">
           <img className="avatar-img" src={avatar} alt="avatar" />
           <button className="arrow-icon" type="button" alt="arrow">

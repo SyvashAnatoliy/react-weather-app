@@ -1,0 +1,119 @@
+.highlights {
+  height: 339px;
+  padding: 24px;
+  border-radius: 24px;
+  background-color: var(--border-color);
+
+  h2 {
+    margin: 0 0 24px 0;
+    font-size: 24px;
+    color: var(--text-color);
+    font-weight: 600;
+  }
+}
+
+.highlightsGrid {
+  max-width: 616px;
+  width: 100%;
+  height: 286px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 18px 18px;
+
+  h3 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    color: var(--text-secondary-color);
+  }
+
+  .highlightItem-title {
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .highlightItem-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+  }
+
+  .highlights-value {
+    font-size: 24px;
+    color: var(--text-color);
+    font-weight: 600;
+
+    .highlights-valueUnit {
+      font-size: 14px;
+      color: var(--text-color);
+      font-weight: 600;
+    }
+  }
+
+  .highlightItem {
+    width: 125px;
+    height: 102px;
+    border-radius: 16px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    gap: 16px;
+    background-color: var(--primary-color);
+
+    .highlights-desc {
+      font-size: 14px;
+      color: var(--text-color);
+      font-weight: normal;
+    }
+  }
+
+  .highlightItemLong {
+    width: 235px;
+    height: 64px;
+    padding: 35px 16px 35px 16px;
+    border-radius: 16px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+    background-color: var(--primary-color);
+
+    .highlights-sunStatus {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      gap: 10px;
+    }
+  }
+}
+
+#wind-block {
+  padding: 16px;
+  width: 125px;
+}
+
+#humidity-block {
+  padding: 16px 22px 16px 22px;
+  width: 112px;
+}
+
+#pressure-block {
+  padding: 16px 27px 16px 27px;
+  width: 102px;
+}
+
+#visibility-block {
+  padding: 16px 30px 16px 30px;
+  width: 97px;
+}
