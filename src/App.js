@@ -2,6 +2,8 @@ import Header from './components//Header/Header.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
 import CurrentWeather from './components/CurrentWeather/CurrentWeather.jsx';
 import Highlights from './components/Highlights/Highlights.jsx';
+import Weather3Hours from './components/Weather3Hours/Weather3Hours.jsx';
+import Weather5Days from './components/Weather5Days/Weather5Days.jsx';
 import useWeatherSearch from './hooks/useWeatherSearch';
 import { useState, useEffect } from 'react';
 
@@ -37,9 +39,11 @@ function App() {
         <div className="main">
           <div className="first-half">
             <CurrentWeather weather={weather} unit={unit} setUnit={setUnit} />
+            <Weather3Hours weather={weather} unit={unit} setUnit={setUnit} />
           </div>
           <div className="second-half">
             <Highlights weather={weather} unit={unit} setUnit={setUnit} />
+            <Weather5Days weather={weather} unit={unit} setUnit={setUnit} />
           </div>
         </div>
       </div>

@@ -1,0 +1,139 @@
+.weather-3hours {
+  height: 394px;
+  padding: 24px;
+  overflow: hidden;
+  border-radius: 24px;
+  background-color: var(--border-color);
+}
+
+.weather3hours-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  h2 {
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .weather3hours-scrollLabel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+    p {
+      margin: 0;
+      color: var(--text-color);
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+}
+
+.weather3hours-list {
+  width: 508px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  padding-right: 12px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  .weather3hours-item {
+    height: 79px;
+    padding: 24px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 500;
+
+    p {
+      margin: 0;
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    .weather3hours-item-info {
+      height: 78px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: space-between;
+
+      .weather3hours-item-time {
+        color: var(--text-secondary-color);
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .weather3hours-item-date {
+        color: var(--text-color);
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      .weather3hours-item-description {
+        color: var(--text-color);
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    img {
+      align-self: center;
+      width: 68px;
+      height: 68px;
+    }
+
+    .weather3hours-item-temp {
+      color: var(--text-color);
+      font-size: 24px;
+      font-weight: 500;
+
+      span {
+        color: var(--text-secondary-color);
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .weather3hours-item:last-child {
+    margin-bottom: 48px;
+  }
+}
+
+  .weather3hours-list::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .weather3hours-list::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  .weather3hours-list::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+    background: var(--text-placeholder-color);
+  }
+
+  .weather3hours-list::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary-color);
+  }

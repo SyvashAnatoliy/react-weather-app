@@ -22,7 +22,7 @@
     font-size: 16px;
     font-weight: 500;
     color: var(--text-placeholder-color);
-    transition: all 0.2s ease-in-out;
+    transition: border, color 0.2s ease-in-out;
   }
 
   .unit-btn:hover {
