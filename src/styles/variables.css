@@ -1,0 +1,38 @@
+[data-theme="dark"] {
+  --background-color: #0F0F0F;
+  --background-pg-color: #1E1E1E;
+
+  --text-color: #ffffff;
+  --text-secondary-color: #B9B9B9;
+  --text-placeholder-color: #5E5E5E;
+
+  --primary-color: #363636;
+  --secondary-color: #1E1E1E;
+
+  --border-color: #272727;
+  --container-border: 'none';
+
+  --btn-theme-bg-color: #262626;
+  --btn-theme-bg-box-shadow: 0 2px 8px rgba(153, 161, 180, 0.25);
+  --btn-theme-border: none;
+}
+
+[data-theme="light"] {
+
+  --background-color: #FFFFFF;
+  --background-pg-color: #EEF2F8;
+
+  --primary-color: #FFFFFF;
+  --secondary-color: #E6EBF3;
+
+  --text-color: #1A1A1A;
+  --text-secondary-color: #5C5C5C;
+  --text-placeholder-color: #9E9E9E;
+
+  --border-color: #D9E1EC;
+  --container-border: 1px solid #9E9E9E;
+
+  --btn-theme-bg-color: #D9E1EC;
+  --btn-theme-border: 1px solid #D9E1EC;
+  --btn-theme-bg-box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
+}
