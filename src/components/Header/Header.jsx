@@ -12,7 +12,7 @@ const Header = ({ onSearchChange, theme, setTheme }) => {
         <h2> Good {new Date().getHours() < 12 ? "morning" : "afternoon"} </h2>
       </div>
       <div className="header-main">
-        <Search onSearchChange={(data) => console.log(data.value)} />
+        <Search onSearchChange={onSearchChange} />
         <ThemeToggle theme={theme} setTheme={setTheme}/>
         <div className="avatar">
           <img className="avatar-img" src={avatar} alt="avatar" />
