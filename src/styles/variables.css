@@ -12,6 +12,7 @@
   --border-color: #272727;
   --container-border: 'none';
 
+  --btn-theme-bg-img: url('../assets/icons/moonIcon.svg');
   --btn-theme-bg-color: #262626;
   --btn-theme-bg-box-shadow: 0 2px 8px rgba(153, 161, 180, 0.25);
   --btn-theme-border: none;
@@ -32,6 +33,7 @@
   --border-color: #D9E1EC;
   --container-border: 1px solid #9E9E9E;
 
+  --btn-theme-bg-img: url('../assets/icons/sunIcon.svg');
   --btn-theme-bg-color: #D9E1EC;
   --btn-theme-border: 1px solid #D9E1EC;
   --btn-theme-bg-box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
