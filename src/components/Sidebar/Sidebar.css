@@ -1,0 +1,125 @@
+.sidebar {
+  width: 84px;
+  height: 716px;
+  border-radius: 32px;
+  background-color: var(--border-color);
+  margin: 44px 24px 44px 44px;
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-long {
+  width: 84px;
+  height: 2px;
+  border: none;
+  margin: 0;
+  background: linear-gradient(90deg,
+      rgba(30, 30, 30, 0) 0%,
+      rgba(74, 73, 73, 1) 50%,
+      rgba(30, 30, 30, 0) 100%);
+}
+
+.sidebar-top {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  .sidebar-burgerLabel {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    position: relative;
+    cursor: pointer;
+
+    .sidebar-burgerCheckbox {
+      z-index: 2;
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    span {
+      width: 100%;
+      height: 3px;
+      background: var(--text-placeholder-color);
+      border-radius: 2px;
+      transition: 0.3s ease;
+    }
+  }
+}
+
+.sidebar-menu {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+svg {
+  outline: none;
+  display: block;
+  cursor: pointer;
+}
+
+.sidebar-burgerCheckbox:checked ~ .burger-line1 {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.sidebar-burgerCheckbox:checked ~ .burger-line2 {
+  opacity: 0;
+}
+
+.sidebar-burgerCheckbox:checked ~ .burger-line3 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.sidebar-burgerLabel:hover {
+  span {
+    background: var(--text-color);
+  }
+}
+
+.sidebar-menu-icon {
+  
+  path {
+    transition: fill 0.3s ease;
+  }
+  rect {
+    transition: fill 0.3s ease;
+  }
+  circle {
+    transition: fill 0.3s ease;
+  }
+}
+
+.sidebar-menu-icon:hover {
+  path {
+    fill: var(--text-color);
+  }
+
+  rect {
+    fill: var(--text-color);
+  }
+
+  circle {
+    fill: var(--text-color);
+  }
+}
