@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme] = useState('dark');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
