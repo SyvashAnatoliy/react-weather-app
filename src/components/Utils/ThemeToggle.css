@@ -1,11 +1,12 @@
 .theme-btn {
-  width: 56px;
+  min-width: 56px;
+  width: 100%;
+  max-width: 56px;
   height: 56px;
   border-radius: 50%;
   border: var(--btn-theme-border);
-  border-radius: 100%;
   box-shadow: none;
-  background-color: var(--btn-theme-bg-color);
+  background-color: var(--border-color);
   background-image: var(--btn-theme-bg-img);
   background-repeat: no-repeat;
   background-position: center;

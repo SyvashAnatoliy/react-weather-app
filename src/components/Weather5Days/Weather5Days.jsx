@@ -15,10 +15,17 @@ const Weather5Days = ({ weather, unit }) => {
   }
 
   const formatDateTime = (dateTime) => {
+    const screenWidth = window.innerWidth;
     const date = new Date(dateTime);
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const day = days[date.getDay()];
-    return `${day}`;
+    if (screenWidth >= 1215) {
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const day = days[date.getDay()];
+      return `${day}`;
+    } else {
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const day = days[date.getDay()];
+      return `${day}`;
+    }
   }
 
   return (
@@ -29,7 +36,7 @@ const Weather5Days = ({ weather, unit }) => {
           <li key={index} className="weather5days-item">
             <div className="weather5days-date">
               <p className="weather5days-day">{formatDateTime(item.dt_txt)}</p>
-              <hr className="line-short"/>
+              <hr className="line-short" />
             </div>
             <img src={Weather5DaysUrlToggle(item)} alt="" />
             <p className="weather5days-temp">{convertTemp(item.main.temp, unit)}°{unit === 'celsius' ? 'C' : 'F'}</p>

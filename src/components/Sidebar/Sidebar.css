@@ -1,14 +1,25 @@
 .sidebar {
   width: 84px;
-  height: 716px;
+  min-height: 100%;
+  height: auto;
   border-radius: 32px;
   background-color: var(--border-color);
-  margin: 44px 24px 44px 44px;
   padding: 48px 0;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  align-self: stretch;
+
+  .sidebar-main {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.sidebar--open {
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-long {
@@ -28,31 +39,31 @@
   flex-direction: column;
   align-items: center;
   gap: 24px;
+}
 
-  .sidebar-burgerLabel {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    position: relative;
+.sidebar-burgerLabel {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+  cursor: pointer;
+
+  .sidebar-burgerCheckbox {
+    z-index: 2;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
     cursor: pointer;
+  }
 
-    .sidebar-burgerCheckbox {
-      z-index: 2;
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      cursor: pointer;
-    }
-
-    span {
-      width: 100%;
-      height: 3px;
-      background: var(--text-placeholder-color);
-      border-radius: 2px;
-      transition: 0.3s ease;
-    }
+  span {
+    width: 100%;
+    height: 3px;
+    background: var(--text-placeholder-color);
+    border-radius: 2px;
+    transition: 0.3s ease;
   }
 }
 
@@ -79,15 +90,15 @@ svg {
   cursor: pointer;
 }
 
-.sidebar-burgerCheckbox:checked ~ .burger-line1 {
+.sidebar-burgerCheckbox:checked~.burger-line1 {
   transform: translateY(6px) rotate(45deg);
 }
 
-.sidebar-burgerCheckbox:checked ~ .burger-line2 {
+.sidebar-burgerCheckbox:checked~.burger-line2 {
   opacity: 0;
 }
 
-.sidebar-burgerCheckbox:checked ~ .burger-line3 {
+.sidebar-burgerCheckbox:checked~.burger-line3 {
   transform: translateY(-6px) rotate(-45deg);
 }
 
@@ -98,28 +109,61 @@ svg {
 }
 
 .sidebar-menu-icon {
-  
-  path {
-    transition: fill 0.3s ease;
-  }
-  rect {
-    transition: fill 0.3s ease;
-  }
-  circle {
-    transition: fill 0.3s ease;
-  }
+  color: var(--text-placeholder-color);
+  transition: color 0.3s ease;
 }
 
+.sidebar-menu-item:hover .sidebar-menu-icon,
+.sidebar-bottom:hover .sidebar-menu-icon,
 .sidebar-menu-icon:hover {
-  path {
-    fill: var(--text-color);
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    height: 58px;
+    margin: 0;
+    padding: 16px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .sidebar-main {
+      flex-direction: row;
+      gap: 16px;
+      align-items: center;
+    }
   }
 
-  rect {
-    fill: var(--text-color);
+  .sidebar-top {
+    margin: 0;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
   }
 
-  circle {
-    fill: var(--text-color);
+  .sidebar-bottom {
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .sidebar-main {
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .sidebar-long {
+    width: 2px;
+    height: 32px;
   }
 }

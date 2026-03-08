@@ -6,18 +6,48 @@ import { ReactComponent as PressureIcon } from '../../assets/icons/highlights/pr
 import { ReactComponent as VisibilityIcon } from '../../assets/icons/highlights/visibilityIcon.svg';
 import { ReactComponent as SunsetIcon } from '../../assets/icons/highlights/sunsetImg.svg';
 
-const Highlights = ({ weather }) => {
+const Highlights = ({ weather, isTablet }) => {
   if (!weather || !weather.currentWeather) {
     return null;
   }
 
   const data = weather.currentWeather;
 
+  const renderSunriseCard = (isTablet) => {
+    return (
+      <div className="highlightItemLong">
+        <SunriseIcon className='highlightItemLong-icon' />
+        <div className="highlights-sunStatus">
+          <h3 className="highlightItem-title">
+            Sunrise
+          </h3>
+          <p className='highlights-value'>{new Date(data.sys.sunrise * 1000).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}</p>
+        </div>
+      </div>
+    );
+  }
+
+  const renderSunsetCard = (isTablet) => {
+    return (
+      <div className="highlightItemLong">
+        <SunsetIcon className='highlightItemLong-icon' />
+        <div className="highlights-sunStatus">
+          <h3 className="highlightItem-title">
+            Sunset
+          </h3>
+          <p className='highlights-value'>{new Date(data.sys.sunset * 1000).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     console.log(weather),
     <div className="highlights">
       <h2>Today`s Highlights</h2>
       <div className="highlightsGrid">
+        { isTablet && renderSunriseCard(isTablet) }
+        { isTablet && renderSunsetCard(isTablet) }
         <div className="highlightItem" id='wind-block'>
           <h3 className="highlightItem-title">
             <WindIcon className='highlightItem-icon' />
@@ -48,15 +78,7 @@ const Highlights = ({ weather }) => {
           </p>
         </div>
 
-        <div className="highlightItemLong">
-          <SunriseIcon className='highlightItemLong-icon' />
-          <div className="highlights-sunStatus">
-            <h3 className="highlightItem-title">
-              Sunrise
-            </h3>
-            <p className='highlights-value'>{new Date(data.sys.sunrise * 1000).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}</p>
-          </div>
-        </div>
+        { !isTablet && renderSunriseCard(isTablet) }
 
         <div className="highlightItem" id='pressure-block'>
           <h3 className="highlightItem-title">
@@ -84,15 +106,7 @@ const Highlights = ({ weather }) => {
           </p>
         </div>
 
-        <div className="highlightItemLong">
-          <SunsetIcon className='highlightItemLong-icon' />
-          <div className="highlights-sunStatus">
-            <h3 className="highlightItem-title">
-              Sunset
-            </h3>
-            <p className='highlights-value'>{new Date(data.sys.sunset * 1000).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}</p>
-          </div>
-        </div>
+        { !isTablet && renderSunsetCard(isTablet) }
       </div>
     </div>
   );

@@ -5,18 +5,14 @@ import { ReactComponent as MapIcon } from '../../assets/icons//sidebar/mapIcon.s
 import { ReactComponent as SettingsIcon } from '../../assets/icons//sidebar/settingsIcon.svg';
 import { ReactComponent as QuestionIcon } from '../../assets/icons//sidebar/questionIcon.svg';
 import { ReactComponent as WeatherIcon } from '../../assets/icons//sidebar/weatherIcon.svg';
+import { ReactComponent as UserIcon } from '../../assets/icons//sidebar/userIcon.svg';
 
-const Sidebar = () => {
+const Sidebar = ( { isOpen } ) => {
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${isOpen ? "sidebar--open" : ""}`}>
       <div className="sidebar-main">
         <div className='sidebar-top'>
-          <label htmlFor="" className="sidebar-burgerLabel">
-            <input type="checkbox" className="sidebar-burgerCheckbox" />
-            <span className="burger-line1"></span>
-            <span className="burger-line2"></span>
-            <span className="burger-line3"></span>
-          </label>
+          <UserIcon className="sidebar-menu-icon" />
           <hr className="sidebar-long" />
         </div>
 

@@ -16,6 +16,9 @@
   --btn-theme-bg-color: #262626;
   --btn-theme-bg-box-shadow: 0 2px 8px rgba(153, 161, 180, 0.25);
   --btn-theme-border: none;
+
+  --par-1-font-size: 20px;
+  --par-2-font-size: 16px;
 }
 
 [data-theme="light"] {
@@ -37,4 +40,19 @@
   --btn-theme-bg-color: #D9E1EC;
   --btn-theme-border: 1px solid #D9E1EC;
   --btn-theme-bg-box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
+
+  --par-1-font-size: 20px;
+  --par-2-font-size: 16px;
+}
+
+@media screen and (max-width: 470px) {
+  [data-theme="dark"] {
+    --par-1-font-size: 16px;
+    --par-2-font-size: 14px;
+  }
+
+  [data-theme="light"] {
+    --par-1-font-size: 16px;
+    --par-2-font-size: 14px;
+  }
 }

@@ -1,0 +1,31 @@
+.sidebar-checkbox {
+    min-width: 56px;
+    width: 100%;
+    max-width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: var(--btn-theme-border);
+    border-radius: 100%;
+    box-shadow: none;
+    background-color: var(--border-color);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+    transition: box-shadow 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+
+    label {
+        margin-top: 10px;
+        align-self: center;
+    }
+}
+
+.sidebar-checkbox:hover {
+    cursor: pointer;
+    box-shadow: var(--btn-theme-bg-box-shadow);
+
+    span {
+        background: var(--text-secondary-color);
+    }
+}

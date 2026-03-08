@@ -43,7 +43,7 @@ const Search = ({ onSearchChange }) => {
           IndicatorSeparator: () => null,
         }}
         styles={{
-          control: (baseStyles, state) => ({
+          control: (baseStyles) => ({
             ...baseStyles,
             cursor: 'text',
             fontSize: '18px',
@@ -53,17 +53,21 @@ const Search = ({ onSearchChange }) => {
             border: 'none',
             boxShadow: 'none',
             background: 'var(--border-color)',
-            width: '333px',
+            width: '100%',
+            maxWidth: '333px',
+            minWidth: '0',
             height: '56px',
             display: 'flex',
-            transition: null,
+          }),
+          container: (baseStyles) => ({
+            ...baseStyles,
+            width: '100%',
           }),
           placeholder: (baseStyles, state) => ({
             ...baseStyles,
             cursor: 'text',
             fontSize: '18px',
-            color: state.isFocused ? 'var(--text-secondary-color)' : 'var(--text-placeholder-color)',
-            transition: 'color 0.2s ease-in-out',
+            transition: 'color 0.2s ease',
           }),
           singleValue: (baseStyles) => ({
             ...baseStyles,
@@ -85,7 +89,7 @@ const Search = ({ onSearchChange }) => {
             background: 'var(--secondary-color)',
             border: '1px solid var(--text-placeholder-color)',
             overflow: 'hidden',
-            width: '335px',
+            width: '100%',
             transition: null,
           }),
           option: (baseStyles) => ({
@@ -96,7 +100,7 @@ const Search = ({ onSearchChange }) => {
             boxShadow: 'none',
             color: 'var(--text-color)',
             background: 'var(--secondary-color)',
-            width: '333px',
+            width: '100%',
           }),
           transition: null,
         }}
