@@ -122,6 +122,7 @@ body[data-sidebar="closed"] .main {
     min-width: 0;
     height: 100%;
     flex-direction: column;
+    gap: 24px;
   }
 }
 
