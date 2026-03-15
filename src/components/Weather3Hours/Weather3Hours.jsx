@@ -8,20 +8,29 @@ const Weather3Hours = ({ weather, unit }) => {
   }
 
   const convertTemp = (temp, unit) => {
-    if (unit === 'celsius') {
-      return temp.toFixed(1);
-    } else {
-      return Math.round(temp * 1.8 + 32).toFixed(1);
-    }
+    return unit === "celsius"
+      ? temp.toFixed(1)
+      : (temp * 1.8 + 32).toFixed(1);
   }
 
-  const highlightsFormatDate = (dt_txt) => {
-    const date = new Date(dt_txt);
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
+  const formatTime = (dt_txt) => {
+    return new Date(dt_txt).toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
+  };
 
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-  }
+  const getTimeOfDay = (dt_txt) => {
+    const hours = new Date(dt_txt).getHours();
+
+    if (hours >= 6 && hours < 12) { return 'Morning'; }
+    if (hours >= 12 && hours < 18) { return 'Afternoon'; }
+    if (hours >= 18 && hours < 24) { return 'Evening'; }
+    return 'Night';
+  };
+
+  const unitSymbol = unit === 'celsius' ? 'C' : 'F';
 
   return (
     <div className="weather-3hours">
@@ -33,26 +42,19 @@ const Weather3Hours = ({ weather, unit }) => {
         </div>
       </div>
       <ul className="weather3hours-list">
-        {weather.weather3Hours.list.slice(0, 5).map((item, index) => (
-          <li className="weather3hours-item" key={index}>
+        {weather.weather3Hours.list.slice(0, 5).map((item) => (
+          <li className="weather3hours-item" key={item.dt}>
             <div className="weather3hours-item-info">
               <p className="weather3hours-item-time">
-                {new Date(item.dt_txt).getHours() >= 6 && new Date(item.dt_txt).getHours() < 12
-                  ? 'Morning'
-                  : new Date(item.dt_txt).getHours() >= 12 && new Date(item.dt_txt).getHours() < 18
-                    ? 'Afternoon'
-                    : new Date(item.dt_txt).getHours() >= 18 && new Date(item.dt_txt).getHours() < 24
-                      ? 'Evening'
-                      : 'Night'
-                }
+                {getTimeOfDay(item.dt_txt)}
               </p>
-              <h3 className="weather3hours-item-date">{highlightsFormatDate(item.dt_txt)}</h3>
+              <h3 className="weather3hours-item-date">{formatTime(item.dt_txt)}</h3>
               <p className="weather3hours-item-description">{item.weather[0].description}</p>
             </div>
             <img src={Weather3HoursUrlToggle(item)} alt="" className="weather3hours-item-img" />
-              <p className="weather3hours-item-temp">{convertTemp(item.main.temp_max, unit) }°{unit === 'celsius' ? 'C' : 'F'} 
-                <span>/{convertTemp(item.main.temp_min, unit) }°{unit === 'celsius' ? 'C' : 'F'}</span>
-              </p>
+            <p className="weather3hours-item-temp">{convertTemp(item.main.temp_max, unit)}°{unitSymbol}
+              <span>/{convertTemp(item.main.temp_min, unit)}°{unitSymbol}</span>
+            </p>
           </li>
         ))}
       </ul>

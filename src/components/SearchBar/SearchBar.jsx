@@ -43,66 +43,66 @@ const Search = ({ onSearchChange }) => {
           IndicatorSeparator: () => null,
         }}
         styles={{
-          control: (baseStyles) => ({
-            ...baseStyles,
+          control: (base) => ({
+            ...base,
+            cursor: "text",
+            fontSize: "var(--component-size-18)",
+            paddingLeft: "var(--component-size-72)",
+            color: "var(--text-color)",
+            borderRadius: "inherit",
+            border: "none",
+            boxShadow: "none",
+            background: "transparent",
+            width: "100%",
+            height: "100%",
+            minHeight: "unset"
+          }),
+
+          container: (base) => ({
+            ...base,
+            width: '100%'
+          }),
+
+          placeholder: (base) => ({
+            ...base,
             cursor: 'text',
-            fontSize: '18px',
-            paddingLeft: '72px',
-            color: 'var(--text-color)',
-            borderRadius: '36px',
-            border: 'none',
-            boxShadow: 'none',
-            background: 'var(--border-color)',
-            width: '100%',
-            maxWidth: '333px',
-            minWidth: '0',
-            height: '56px',
-            display: 'flex',
+            fontSize: 'var(--component-size-18)',
+            transition: 'color 0.2s ease'
           }),
-          container: (baseStyles) => ({
-            ...baseStyles,
-            width: '100%',
+
+          singleValue: (base) => ({
+            ...base,
+            fontSize: 'var(--component-size-18)',
+            color: 'var(--text-placeholder-color)'
           }),
-          placeholder: (baseStyles, state) => ({
-            ...baseStyles,
-            cursor: 'text',
-            fontSize: '18px',
-            transition: 'color 0.2s ease',
+
+          input: (base) => ({
+            ...base,
+            fontSize: 'var(--component-size-18)',
+            color: 'var(--text-secondary-color)'
           }),
-          singleValue: (baseStyles) => ({
-            ...baseStyles,
-            fontSize: '18px',
-            color: 'var(--text-placeholder-color)',
-            transition: null,
-          }),
-          input: (baseStyles) => ({
-            ...baseStyles,
-            fontSize: '18px',
-            color: 'var(--text-secondary-color)',
-            transition: null,
-          }),
-          menu: (baseStyles) => ({
-            ...baseStyles,
-            borderRadius: '36px',
+
+          menu: (base) => ({
+            ...base,
+            borderRadius: 'var(--component-size-36)',
             boxShadow: 'none',
             color: 'var(--text-color)',
             background: 'var(--secondary-color)',
             border: '1px solid var(--text-placeholder-color)',
             overflow: 'hidden',
-            width: '100%',
-            transition: null,
+            width: '100%'
           }),
-          option: (baseStyles) => ({
-            ...baseStyles,
+
+          option: (base) => ({
+            ...base,
             cursor: 'pointer',
-            borderRadius: '36px',
+            borderRadius: 'var(--component-size-36)',
             border: 'none',
             boxShadow: 'none',
             color: 'var(--text-color)',
             background: 'var(--secondary-color)',
-            width: '100%',
-          }),
-          transition: null,
+            width: '100%'
+          })
         }}
       />
     </div>

@@ -7,37 +7,53 @@ import { ReactComponent as QuestionIcon } from '../../assets/icons//sidebar/ques
 import { ReactComponent as WeatherIcon } from '../../assets/icons//sidebar/weatherIcon.svg';
 import { ReactComponent as UserIcon } from '../../assets/icons//sidebar/userIcon.svg';
 
-const Sidebar = ( { isOpen } ) => {
+const Sidebar = ({ isOpen, showToast }) => {
+  const toastMessage = "This feature is not implemented yet, but stay tuned for updates!";
+
   return (
     <div className={`sidebar ${isOpen ? "sidebar--open" : ""}`}>
       <div className="sidebar-main">
         <div className='sidebar-top'>
-          <UserIcon className="sidebar-menu-icon" />
+          <button onClick={() => showToast(toastMessage)}>
+            <UserIcon className="sidebar-menu-icon" />
+          </button>
           <hr className="sidebar-long" />
         </div>
 
         <ul className="sidebar-menu">
-          <li className="sidebar-menu-item">
-            <WeatherIcon className="sidebar-menu-icon" />
+          <li className="sidebar-menu-item-active">
+            <button className={`sidebar-menu-button active`}>
+              <WeatherIcon className="sidebar-menu-icon" />
+            </button>
           </li>
           <li className="sidebar-menu-item">
-            <MapIcon className="sidebar-menu-icon" />
+            <button onClick={() => showToast(toastMessage)}>
+              <MapIcon className="sidebar-menu-icon" />
+            </button>
           </li>
           <li className="sidebar-menu-item">
-            <CalendarIcon className="sidebar-menu-icon" />
+            <button onClick={() => showToast(toastMessage)}>
+              <CalendarIcon className="sidebar-menu-icon" />
+            </button>
           </li>
           <li className="sidebar-menu-item">
-            <BellIcon className="sidebar-menu-icon" />
+            <button onClick={() => showToast(toastMessage)}>
+              <BellIcon className="sidebar-menu-icon" />
+            </button>
           </li>
           <li className="sidebar-menu-item">
-            <SettingsIcon className="sidebar-menu-icon" />
+            <button onClick={() => showToast(toastMessage)}>
+              <SettingsIcon className="sidebar-menu-icon" />
+            </button>
           </li>
         </ul>
       </div>
 
       <div className="sidebar-bottom">
         <hr className="sidebar-long" />
-        <QuestionIcon className="sidebar-menu-icon" />
+        <button onClick={() => showToast(toastMessage)}>
+          <QuestionIcon className="sidebar-menu-icon" />
+        </button>
       </div>
     </div>
   );

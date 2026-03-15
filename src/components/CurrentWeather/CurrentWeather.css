@@ -18,10 +18,10 @@
     background-color: var(--primary-color);
     border-radius: 16px;
     border: 0px solid transparent;
-    font-size: 16px;
+    font-size: var(--component-size-16);
     font-weight: 500;
     color: var(--text-placeholder-color);
-    transition: border, color 0.2s ease-in-out;
+    transition: border 0.2s ease-in-out, color 0.2s ease-in-out, background-color 0.25s ease !important;
   }
 
   .unit-btn:hover {
@@ -40,7 +40,7 @@
     flex-direction: row;
     align-items: center;
     background-color: var(--primary-color);
-    font-size: 18px;
+    font-size: var(--component-size-18);
     color: var(--text-color);
 
     .location-icon {
@@ -67,12 +67,12 @@
     color: var(--text-color);
 
     .current-day {
-      font-size: 36px;
+      font-size: var(--component-size-36);
       margin: 0 0 4px 0;
     }
 
     .current-time {
-      font-size: 16px;
+      font-size: var(--component-size-16);
       margin: 0;
     }
   }
@@ -108,13 +108,13 @@
         margin-right: 10px;
 
         .current-temp-max {
-          font-size: 40px;
+          font-size: var(--component-size-40);
           margin: 0;
           color: var(--text-color);
         }
 
         .current-temp-min {
-          font-size: 24px;
+          font-size: var(--component-size-24);
           margin: 0;
           color: var(--text-secondary-color);
         }

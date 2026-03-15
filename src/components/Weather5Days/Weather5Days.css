@@ -6,7 +6,7 @@
 
 h2 {
   color: var(--text-color);
-  font-size: 24px;
+  font-size: var(--component-size-24);
   font-weight: 600;
   margin: 0 0 25px 0;
 }
@@ -58,7 +58,7 @@ h2 {
 
       .weather5days-day {
         color: var(--text-color);
-        font-size: 14px;
+        font-size: var(--component-size-14);
         font-weight: 500;
       }
     }
@@ -74,7 +74,7 @@ h2 {
 
     .weather5days-temp {
       color: var(--text-color);
-      font-size: 18px;
+      font-size: var(--component-size-18);
       font-weight: 500;
     }
   }
@@ -100,8 +100,6 @@ h2 {
 
 @media screen and (max-width: 505px) {
   .weather5days-list {
-
-
     .weather5days-item {
       height: 180px;
       justify-content: normal;

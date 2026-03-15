@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ThemeToggle.css";
 
 function ThemeToggle({ theme, setTheme }) {
-  const savedTheme = localStorage.getItem('theme');
-
-   React.useEffect(() => {
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setTheme(savedTheme);
     }
-  }, [savedTheme, setTheme]);
+  }, [setTheme]);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  }
 
   return (
-      <button className="theme-btn" onClick={() => {
-        const newTheme = theme === "dark" ? "light" : "dark";
-        setTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
-      }}>
+      <button className="theme-btn" onClick={toggleTheme} aria-label="Toggle theme">
       </button>
   );
 }

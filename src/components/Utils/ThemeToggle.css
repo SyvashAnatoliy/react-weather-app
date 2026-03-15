@@ -1,20 +1,43 @@
 .theme-btn {
-  min-width: 56px;
-  width: 100%;
-  max-width: 56px;
-  height: 56px;
+  width: var(--component-size-56);
+  height: var(--component-size-56);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
   border-radius: 50%;
-  border: var(--btn-theme-border);
+  border: none;
+  background-color: #272727;
   box-shadow: none;
-  background-color: var(--border-color);
+  cursor: pointer;
+  transition: box-shadow 0.25s ease,
+  background-color 0.25s ease !important;
+}
+
+[data-theme="light"] .theme-btn {
+  background-color: #D9E1EC;
+}
+
+.theme-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background-image: var(--btn-theme-bg-img);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 24px 24px;
-  transition: box-shadow 0.2s ease-in-out;
+  background-size: var(--component-size-24);
+  transition:
+    opacity 0.25s ease,
+    transform 0.4s cubic-bezier(.4, 0, .2, 1);
+}
+
+.theme-btn:active::before {
+  transform: scale(0.85) rotate(180deg);
+}
+
+[data-theme="light"] .theme-btn::before {
+  transform: rotate(180deg);
 }
 
 .theme-btn:hover {
-  cursor: pointer;
   box-shadow: var(--btn-theme-bg-box-shadow);
 }

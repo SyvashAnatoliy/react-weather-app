@@ -13,6 +13,19 @@ const Highlights = ({ weather, isTablet }) => {
 
   const data = weather.currentWeather;
 
+  const getHumidityStatus = (humidity) => {
+    if (humidity < 30)return "Humidity is low";
+    if (humidity < 45)return "Humidity is normal";
+    if (humidity < 60)return "Humidity is moderate";
+    return "Humidity is high";
+  };
+
+  const getPressureStatus = (pressure) => {
+    if (pressure < 1000)return "Pressure is low";
+    if (pressure > 1050)return "Pressure is high";
+    return "Pressure is normal";
+  };
+
   const renderSunriseCard = (isTablet) => {
     return (
       <div className="highlightItemLong">
@@ -42,7 +55,6 @@ const Highlights = ({ weather, isTablet }) => {
   }
 
   return (
-    console.log(weather),
     <div className="highlights">
       <h2>Today`s Highlights</h2>
       <div className="highlightsGrid">
@@ -66,15 +78,7 @@ const Highlights = ({ weather, isTablet }) => {
           </h3>
           <p className='highlights-value'>{data.main.humidity}<span className='highlights-valueUnit'>%</span></p>
           <p className='highlights-desc'>
-            {
-              data.main.humidity < 30
-                ? "Humidity is low"
-                : data.main.humidity < 45
-                  ? "Humidity is normal"
-                  : data.main.humidity < 60
-                    ? "Humidity is moderate"
-                    : "Humidity is high"
-            }
+            {getHumidityStatus(data.main.humidity)}
           </p>
         </div>
 
@@ -86,13 +90,9 @@ const Highlights = ({ weather, isTablet }) => {
             Pressure
           </h3>
           <p className='highlights-value'>{data.main.pressure} <span className='highlights-valueUnit'>hPa</span></p>
-          <p className='highlights-desc'>{
-            data.main.pressure < 1000
-              ? "Low"
-              : data.main.pressure > 1050
-                ? "High"
-                : "Normal"
-          }</p>
+          <p className='highlights-desc'>
+            {getPressureStatus(data.main.pressure)}
+          </p>
         </div>
 
         <div className="highlightItem" id='visibility-block'>

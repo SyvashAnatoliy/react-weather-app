@@ -1,19 +1,19 @@
 import React from "react";
 import "./SidebarToggle.css";
 
-function SidebarToggle( { isOpen, setIsOpen } ) {
+function SidebarToggle({ isOpen, setIsOpen }) {
+    const handleToggle = () => {
+        const newIsOpen = !isOpen;
+        setIsOpen(newIsOpen);
+        document.body.setAttribute('data-sidebar', newIsOpen ? 'open' : 'closed');
+    }
 
     return (
-        <button className="sidebar-checkbox">
-            <label className="sidebar-burgerLabel">
-                <input type="checkbox" className="sidebar-burgerCheckbox" checked={isOpen} onChange={() => {
-                    setIsOpen(!isOpen);
-                    document.body.setAttribute('data-sidebar', !isOpen ? 'open' : 'closed');
-                }}/>
-                <span className="burger-line1"></span>
-                <span className="burger-line2"></span>
-                <span className="burger-line3"></span>
-            </label>
+        <button
+            className={`sidebar-toggle ${isOpen ? "sidebar-toggle--open" : ""}`} onClick={handleToggle} aria-label="Toggle sidebar">
+            <span className="burger-line"></span>
+            <span className="burger-line"></span>
+            <span className="burger-line"></span>
         </button>
     );
 }
