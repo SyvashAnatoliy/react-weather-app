@@ -5,7 +5,7 @@ import SidebarToggle from "../Utils/SidebarToggle.jsx";
 import avatar from "../../assets/images/avatar.png";
 import "./Header.css";
 
-const Header = ({ onSearchChange, theme, setTheme, isOpen, setIsOpen, isMobile }) => {
+const Header = ({ onSearchChange, theme, toggleTheme, isOpen, setIsOpen, isMobile }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const dropdownRef = useRef(null);
@@ -28,7 +28,7 @@ const Header = ({ onSearchChange, theme, setTheme, isOpen, setIsOpen, isMobile }
 
   const Customization = () => (
     <div className="header-misc">
-      <ThemeToggle theme={theme} setTheme={setTheme} />
+      <ThemeToggle toggleTheme={toggleTheme} />
 
       <div
         className="avatar" ref={dropdownRef}>

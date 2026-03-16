@@ -5,19 +5,20 @@ import Highlights from './components/Highlights/Highlights.jsx';
 import Weather3Hours from './components/Weather3Hours/Weather3Hours.jsx';
 import Weather5Days from './components/Weather5Days/Weather5Days.jsx';
 import useWeatherSearch from './hooks/useWeatherSearch';
+import { useTheme } from './hooks/useTheme';
+import { useToast } from './hooks/useToast';
 import PreloadingScreen from './components/PreloadingScreen/PreloadingScreen.jsx';
 import Toast from './components/Toast/Toast.jsx';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const { theme, toggleTheme } = useTheme();
+  const { toastMessage, isToastVisible, showToast } = useToast();
   const [weather, setWeather] = useState(null);
   const [unit, setUnit] = useState('celsius');
   const [isOpen, setIsOpen] = useState(true);
   const [width, setWidth] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(true);
-  const [toastMessage, setToastMessage] = useState('');
-  const [isToastVisible, setIsToastVisible] = useState(false);
   const isMobile = width < 768;
   const isTablet = width < 1299;
   const { handleOnSearchChange } = useWeatherSearch(setWeather);
@@ -28,23 +29,11 @@ function App() {
     }, 1500);
   }, []);
 
-  const showToast = (message) => {
-    setToastMessage(message);
-    setIsToastVisible(true);
-    setTimeout(() => {
-      setIsToastVisible(false);
-    }, 3000);
-  };
-
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -71,7 +60,7 @@ function App() {
     <div className="container">
       {!isMobile && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} showToast={showToast} />}
       <div className="content">
-        <Header setWeather={setWeather} theme={theme} setTheme={setTheme} onSearchChange={handleOnSearchChange} isOpen={isOpen} setIsOpen={setIsOpen} isMobile={isMobile} />
+        <Header theme={theme} toggleTheme={toggleTheme} onSearchChange={handleOnSearchChange} isOpen={isOpen} setIsOpen={setIsOpen} isMobile={isMobile} />
         {isMobile && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} showToast={showToast} />}
         <div className="main">
           {isLoading ? (
