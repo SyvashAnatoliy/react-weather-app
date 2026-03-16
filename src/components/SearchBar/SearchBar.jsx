@@ -8,7 +8,16 @@ const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
 
   const loadOptions = async (inputValue) => {
-    const response = await fetch(CityApiUrl + inputValue, CityApiOptions);
+    if (inputValue.length < 3) {
+      return {
+        options: [],
+      };
+    }
+
+    const response = await fetch(
+      `${CityApiUrl}${inputValue}&sort=-population&limit=10&minPopulation=10000&types=CITY`,
+      CityApiOptions
+    );
     const result = await response.json();
     return {
       options: result.data.map((city) => {
@@ -46,8 +55,8 @@ const Search = ({ onSearchChange }) => {
           control: (base) => ({
             ...base,
             cursor: "text",
-            fontSize: "var(--component-size-18)",
-            paddingLeft: "var(--component-size-72)",
+            fontSize: "var(--font-size-search)",
+            paddingLeft: "var(--search-padding-left)",
             color: "var(--text-color)",
             borderRadius: "inherit",
             border: "none",
@@ -66,19 +75,19 @@ const Search = ({ onSearchChange }) => {
           placeholder: (base) => ({
             ...base,
             cursor: 'text',
-            fontSize: 'var(--component-size-18)',
+            fontSize: 'var(--font-size-search)',
             transition: 'color 0.2s ease'
           }),
 
           singleValue: (base) => ({
             ...base,
-            fontSize: 'var(--component-size-18)',
+            fontSize: 'var(--font-size-search)',
             color: 'var(--text-placeholder-color)'
           }),
 
           input: (base) => ({
             ...base,
-            fontSize: 'var(--component-size-18)',
+            fontSize: 'var(--font-size-search)',
             color: 'var(--text-secondary-color)'
           }),
 

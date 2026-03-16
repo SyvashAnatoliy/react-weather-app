@@ -140,11 +140,11 @@ body[data-sidebar="closed"] .sidebar {
 }
 
 @media screen and (max-width: 768px) {
+
   .container {
     margin: 0;
     border: none;
-    max-height: var(--component-size-900);
-    height: 100%;
+    max-height: calc(100vh - 40px);
   }
 
   body[data-sidebar="closed"] .sidebar {

@@ -20,6 +20,7 @@ function App() {
   const [isToastVisible, setIsToastVisible] = useState(false);
   const isMobile = width < 768;
   const isTablet = width < 1299;
+  const { handleOnSearchChange } = useWeatherSearch(setWeather);
 
   useEffect(() => {
     setTimeout(() => {
@@ -41,31 +42,37 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const { handleOnSearchChange } = useWeatherSearch(setWeather);
-
-
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const { latitude, longitude } = position.coords;
-      const searchData = { value: `${latitude} ${longitude}` };
-      handleOnSearchChange(searchData);
-    },
-      (error) => {
-        handleOnSearchChange({ value: "50.4501 30.5234" });
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        console.log("Detected:", latitude, longitude);
+        const searchData = {
+          value: `${latitude} ${longitude}`,
+        };
+        handleOnSearchChange(searchData);
+      },
+      () => {
+        handleOnSearchChange({ value: "46.4825 30.7233" }); // Odessa fallback
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0,
       }
     );
   }, [handleOnSearchChange]);
 
   return (
     <div className="container">
-      {!isMobile && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} showToast={showToast}/>}
+      {!isMobile && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} showToast={showToast} />}
       <div className="content">
         <Header setWeather={setWeather} theme={theme} setTheme={setTheme} onSearchChange={handleOnSearchChange} isOpen={isOpen} setIsOpen={setIsOpen} isMobile={isMobile} />
-        {isMobile && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} showToast={showToast}/>}
+        {isMobile && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} showToast={showToast} />}
         <div className="main">
           {isLoading ? (
             <PreloadingScreen />

@@ -43,6 +43,14 @@
   --component-size-293: 18.3125rem;
   --component-size-333: 20.8125rem;
   --component-size-732: 45.75rem;
+
+  --font-size-search: clamp(0.875rem, 1vw, 1.125rem);
+  --font-size-search-mobile: 0.875rem;
+
+  --search-icon-size: var(--component-size-32);
+  --search-icon-offset: var(--component-size-24);
+
+  --search-padding-left: var(--component-size-72);
 }
 
 
