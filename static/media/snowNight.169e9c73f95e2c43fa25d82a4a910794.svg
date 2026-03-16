@@ -1,0 +1,42 @@
+<svg width="64" height="64" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="cloudGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#F5F5F5"/>
+        <stop offset="100%" stop-color="#D1D1D1"/>
+      </linearGradient>
+      <linearGradient id="rainGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#6EC6FF"/>
+        <stop offset="100%" stop-color="#0288D1"/>
+      </linearGradient>
+      <linearGradient id="sunGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#FFF176"/>
+        <stop offset="100%" stop-color="#FBC02D"/>
+      </linearGradient>
+      <linearGradient id="moonGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#CFD8DC"/>
+        <stop offset="100%" stop-color="#90A4AE"/>
+      </linearGradient>
+    </defs>
+
+    
+    
+    <path d="M9 5a4 4 0 104 4 3 3 0 01-4-4z" fill="url(#moonGrad)"/>
+    
+
+    <ellipse cx="16" cy="16" rx="10" ry="6" fill="url(#cloudGrad)"/>
+    <ellipse cx="10" cy="14" rx="6" ry="5" fill="url(#cloudGrad)"/>
+    <ellipse cx="20" cy="14" rx="6" ry="5" fill="url(#cloudGrad)"/>
+
+    
+    
+    <g fill="#E6F3FF">
+      <circle cx="10" cy="20" r="1"/>
+      <circle cx="14" cy="21" r="1"/>
+      <circle cx="18" cy="20" r="1"/>
+    </g>
+    
+    
+    
+
+    
+</svg>
