@@ -26,7 +26,7 @@ const Header = ({ onSearchChange, theme, toggleTheme, isOpen, setIsOpen, isMobil
   const greeting =
     new Date().getHours() < 12 ? "morning" : "afternoon";
 
-  const Customization = () => (
+  const CustomizationContent = (
     <div className="header-misc">
       <ThemeToggle toggleTheme={toggleTheme} />
 
@@ -72,12 +72,12 @@ const Header = ({ onSearchChange, theme, toggleTheme, isOpen, setIsOpen, isMobil
           </div>
         </div>
 
-        {isMobile && <Customization />}
+        {isMobile && CustomizationContent}
       </div>
 
       <div className="header-main">
         <Search onSearchChange={onSearchChange} />
-        {!isMobile && <Customization />}
+        {!isMobile && CustomizationContent}
       </div>
     </header>
   );
